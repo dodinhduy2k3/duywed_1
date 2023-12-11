@@ -120,52 +120,52 @@ if (checkboxmulti) {
 }
 //end checkbox-multifalse
 //form change multi
-const formchangemulti = document.querySelector("[form-change-multi]")
-formchangemulti.addEventListener("submit", (e) => {
-    //hàm preventDefault ngăn chặn hành động mặc định (ở đây là ngăn chuyển trang khi submid form )
-    e.preventDefault();
-    // const checkboxmulti = document.querySelector("[checkbox-multi]")
-    const inputschecked = checkboxmulti.querySelectorAll("input[name='id']:checked");
-    // console.log(e.target.elements.type.value)
-    const typeChange = e.target.elements.type.value
-    if(typeChange =="delete-all"){
+// const formchangemulti = document.querySelector("[form-change-multi]")
+// formchangemulti.addEventListener("submit", (e) => {
+//     //hàm preventDefault ngăn chặn hành động mặc định (ở đây là ngăn chuyển trang khi submid form )
+//     e.preventDefault();
+//     // const checkboxmulti = document.querySelector("[checkbox-multi]")
+//     const inputschecked = checkboxmulti.querySelectorAll("input[name='id']:checked");
+//     // console.log(e.target.elements.type.value)
+//     const typeChange = e.target.elements.type.value
+//     if(typeChange =="delete-all"){
 
-        const isCofirm = confirm("Bạn có chắc muốn xóa những sản phẩm này không ?")
-        if(!isCofirm){
-            return;
-        }   
-    }
-    if(inputschecked.length>0){
+//         const isCofirm = confirm("Bạn có chắc muốn xóa những sản phẩm này không ?")
+//         if(!isCofirm){
+//             return;
+//         }   
+//     }
+//     if(inputschecked.length>0){
 
-        let ids = []
-        const inputids = formchangemulti.querySelector("input[name='ids']")
+//         let ids = []
+//         const inputids = formchangemulti.querySelector("input[name='ids']")
 
-        inputschecked.forEach(input=>{
-            const id = input.value
-            if(typeChange == "change-position"){
-                //closet đi tìm các thẻ cha
-                // console.log(input.closest("tr").querySelector("input[name='position']").value);
-                const position = input.closest("tr").querySelector("input[name='position']").value
+//         inputschecked.forEach(input=>{
+//             const id = input.value
+//             if(typeChange == "change-position"){
+//                 //closet đi tìm các thẻ cha
+//                 // console.log(input.closest("tr").querySelector("input[name='position']").value);
+//                 const position = input.closest("tr").querySelector("input[name='position']").value
 
-                ids.push(`${id}-${position}`);
+//                 ids.push(`${id}-${position}`);
 
-            }else{
-                ids.push(id)   
+//             }else{
+//                 ids.push(id)   
 
-            }
+//             }
                     
-        })
-        inputids.value=ids.join(",")
-        // console.log(ids)
-        formchangemulti.submit()
-    }else{
-        alert("vui lòng chọn ít nhất 1 bản ghi")
-    }
+//         })
+//         inputids.value=ids.join(",")
+//         // console.log(ids)
+//         formchangemulti.submit()
+//     }else{
+//         alert("vui lòng chọn ít nhất 1 bản ghi")
+//     }
    
 
-})
+// })
 
-// end form change multi
+// // end form change multi
 
 const buttondelete = document.querySelectorAll("[button-delete]")
 if (buttondelete.length > 0) {
