@@ -29,8 +29,11 @@ app.set('views', `${__dirname}/views`)
 app.set('view engine', 'pug')
 // satrt flash
 app.use(cookieParser('dodinhduythongbao'));
-app.use(session({ cookie: { maxAge: 60000 }}));
-app.use(flash());
+app.use(session({
+    cookie: { maxAge: 60000 },
+    resave: true,
+    saveUninitialized: true
+}));app.use(flash());
 // end flash
 
 //
